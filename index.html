@@ -1,41 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <style>
-    .map-container {
-      position: relative;
-      width: 36068px;
-      height: 19547px;
-    }
-    .map-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathwick Town Map</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        #map {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .map-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .map-layer.visible {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
+    <div id="map">
+        <img id="roads" src="Roads.png" class="map-layer">
+        <img id="locations" src="Locations.png" class="map-layer">
+        <img id="trams" src="Trams.png" class="map-layer">
+    </div>
 
-<h2>Bathwick Town Map</h2>
+    <script>
+        // Function to toggle visibility of map layers
+        function toggleLayer(layerId) {
+            const layer = document.getElementById(layerId);
+            if (layer.classList.contains('visible')) {
+                layer.classList.remove('visible');
+            } else {
+                layer.classList.add('visible');
+            }
+        }
 
-<label><input type="checkbox" checked onchange="toggleLayer('Roads')"> Roads</label><br>
-<label><input type="checkbox" checked onchange="toggleLayer('Motorway')"> Motorway</label><br>
-<label><input type="checkbox" checked onchange="toggleLayer('Trams')"> Trams</label><br>
-
-<div class="map-container">
-  <img id="Roads" src="Roads.png" class="map-layer">
-  <img id="Motorway" src="Motorway.png" class="map-layer">
-  <img id="Trams" src="Trams.png" class="map-layer">
-</div>
-
-<script>
-function toggleLayer(id) {
-  const layer = document.getElementById(id);
-  layer.style.display = layer.style.display === 'none' ? 'block' : 'none';
-}
-</script>
-
+        // Example of toggling layers (you can customize this based on buttons or other triggers)
+        document.getElementById('roads').classList.add('visible');
+        document.getElementById('locations').classList.add('visible');
+        document.getElementById('trams').classList.add('visible');
+    </script>
 </body>
 </html>
