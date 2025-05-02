@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .map-container {
+      position: relative;
+      width: 36068px;
+      height: 19547px;
+    }
+    .map-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Bathwick Town Map</h2>
+
+<label><input type="checkbox" checked onchange="toggleLayer('Roads')"> Roads</label><br>
+<label><input type="checkbox" checked onchange="toggleLayer('Motorway')"> Motorway</label><br>
+<label><input type="checkbox" checked onchange="toggleLayer('Trams')"> Trams</label><br>
+
+<div class="map-container">
+  <img id="Roads" src="Roads.png" class="map-layer">
+  <img id="Motorway" src="Motorway.png" class="map-layer">
+  <img id="Trams" src="Trams.png" class="map-layer">
+</div>
+
+<script>
+function toggleLayer(id) {
+  const layer = document.getElementById(id);
+  layer.style.display = layer.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>
