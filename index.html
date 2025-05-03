@@ -38,29 +38,5 @@
         <img id="roads" src="Roads.png" class="map-layer">
         <img id="locations" src="Locations.png" class="map-layer">
     </div>
-
-    <script>
-        // Function to toggle visibility of map layers
-        function toggleLayer(layerId) {
-            const layer = document.getElementById(layerId);
-            if (layer.classList.contains('visible')) {
-                layer.classList.remove('visible');  // Hide layer
-            } else {
-                layer.classList.add('visible');  // Show layer
-            }
-        }
-
-        // Show layers by default when the page loads
-        window.onload = function() {
-            document.getElementById('roads').classList.add('visible');
-            document.getElementById('locations').classList.add('visible');
-        };
-
-        // Optionally: You can add buttons to toggle layers
-        // Example: Toggle visibility of roads layer
-        // document.getElementById('toggle-roads').addEventListener('click', function() {
-        //     toggleLayer('roads');
-        // });
-    </script>
 </body>
 </html>
